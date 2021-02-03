@@ -1,3 +1,7 @@
+import org.junit.runner.JUnitCore; 
+import org.junit.runner.Result;
+import org.junit.runner.notification.Failure;
+
 public class test1{
 
 public static void main(String[] args){
@@ -13,4 +17,10 @@ public static boolean bar(float a, float b){
 		is_valid = true;		
 	}
 	return is_valid; }
+	Result result = JUnitCore.runClasses(JunitTester.class); 
+	for (Failure failure : result.getFailures()) 
+	{
+		System.out.println(failure.toString());
+	}
+		System.out.println(result.wasSuccessful());
 }
